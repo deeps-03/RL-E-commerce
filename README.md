@@ -17,12 +17,14 @@ A full-stack e-commerce application using React (Vite + TypeScript), Redux Toolk
 
 This is the easiest way to run the application using pre-built Docker images. It will download the latest images from Docker Hub and run them.
 
-*   **Frontend Image:** [deepsuresh03/rl-ecommerce-frontend](https://hub.docker.com/repository/docker/deepsuresh03/rl-ecommerce-frontend/general)
+*   **Frontend Image:** https://hub.docker.com/repository/docker/deepaksuresh03/rl-ecommerce-frontend/general
+  
     To pull this image manually:
     ```sh
     docker pull deepsuresh03/rl-ecommerce-frontend:latest
     ```
-*   **Backend Image:** [deepsuresh03/rl-ecommerce-backend](https://hub.docker.com/repository/docker/deepsuresh03/rl-ecommerce-backend/general)
+*   **Backend Image:** https://hub.docker.com/repository/docker/deepaksuresh03/rl-ecommerce-backend/general
+  
     To pull this image manually:
     ```sh
     docker pull deepsuresh03/rl-ecommerce-backend:latest
