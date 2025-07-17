@@ -39,6 +39,8 @@ This method is for developers who want to work on the code and see their changes
     *   Frontend: [http://localhost:8080](http://localhost:8080)
     *   Backend: [http://localhost:5001](http://localhost:5001)
 
+**Note on API URL:** The frontend dynamically determines the API URL. When running with Docker Compose, it uses `http://backend:3000/products`. When running manually, it defaults to `http://localhost:5001/products`.
+
 ## Manual Installation (Without Docker)
 
 ### 1. Frontend

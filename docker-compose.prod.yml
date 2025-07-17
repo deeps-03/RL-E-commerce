@@ -11,5 +11,7 @@ services:
     container_name: rl-ecommerce-frontend
     ports:
       - "8080:80"
+    environment:
+      - VITE_API_URL=http://backend:3000/products
     depends_on:
       - backend
