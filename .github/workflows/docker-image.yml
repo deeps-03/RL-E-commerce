@@ -26,10 +26,7 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: Build the Docker image
-        run: |
-          docker build .
-            --file Dockerfile
-            --tag ${{ secrets.DOCKERHUB_USERNAME }}/rl-ecommerce-frontend:${{ github.event.inputs.version || 'latest' }}
+        run: docker build . --file Dockerfile --tag ${{ secrets.DOCKERHUB_USERNAME }}/rl-ecommerce-frontend:${{ github.event.inputs.version || 'latest' }}
 
       - name: Push the Docker image
         run: |
@@ -48,10 +45,7 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: Build the Docker image
-        run: |
-          docker build ./backend
-            --file ./backend/Dockerfile
-            --tag ${{ secrets.DOCKERHUB_USERNAME }}/rl-ecommerce-backend:${{ github.event.inputs.version || 'latest' }}
+        run: docker build ./backend --file ./backend/Dockerfile --tag ${{ secrets.DOCKERHUB_USERNAME }}/rl-ecommerce-backend:${{ github.event.inputs.version || 'latest' }}
 
       - name: Push the Docker image
         run: |
