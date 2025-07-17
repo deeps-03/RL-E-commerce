@@ -11,7 +11,35 @@ A full-stack e-commerce application using React (Vite + TypeScript), Redux Toolk
 - Backend API with Node.js/Express
 - MongoDB Atlas for product storage
 
-## Getting Started
+## Getting Started with Docker
+
+### Running with Pre-built Images from Docker Hub
+
+This is the easiest way to run the application. It will download the latest images from Docker Hub and run them.
+
+1.  **Prerequisites:** Docker and Docker Compose must be installed.
+2.  **Run the application:**
+    ```sh
+    docker-compose -f docker-compose.prod.yml up
+    ```
+3.  **Access the application:**
+    *   Frontend: [http://localhost:8080](http://localhost:8080)
+    *   Backend: [http://localhost:5001](http://localhost:5001)
+
+### Local Development with Docker
+
+This method is for developers who want to work on the code and see their changes live.
+
+1.  **Prerequisites:** Docker and Docker Compose must be installed.
+2.  **Run the application:**
+    ```sh
+    docker-compose up --build
+    ```
+3.  **Access the application:**
+    *   Frontend: [http://localhost:8080](http://localhost:8080)
+    *   Backend: [http://localhost:5001](http://localhost:5001)
+
+## Manual Installation (Without Docker)
 
 ### 1. Frontend
 1. Install dependencies:

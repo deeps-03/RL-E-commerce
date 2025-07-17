@@ -7,7 +7,7 @@ import { useTheme } from '@mui/material/styles';
 import { useDispatch } from 'react-redux';
 import { addToCart } from '../features/cart/cartSlice';
 
-const API_URL = 'http://localhost:5001/products';
+const API_URL = 'http://backend:3000/products';
 
 const Products = () => {
   const theme = useTheme();

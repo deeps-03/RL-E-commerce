@@ -1,0 +1,15 @@
+version: '3.8'
+services:
+  backend:
+    image: deepsuresh03/rl-ecommerce-backend:latest
+    container_name: rl-ecommerce-backend
+    ports:
+      - "5001:3000"
+
+  frontend:
+    image: deepsuresh03/rl-ecommerce-frontend:latest
+    container_name: rl-ecommerce-frontend
+    ports:
+      - "8080:80"
+    depends_on:
+      - backend
