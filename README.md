@@ -101,4 +101,4 @@ This method is for developers who want to work on the code and see their changes
 ---
 
 ## Credits
-Built with React, Redux Toolkit, Material UI, Node.js/Express, and MongoDB Atlas.
+Built with React, Redux Toolkit, Material UI, Node.js/Express, and MongoDB Atlas
