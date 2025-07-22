@@ -9,6 +9,9 @@ services:
       - /app/node_modules
     environment:
       - PORT=3000
+      - MONGODB_URI=mongodb://mongo:27017/rl-ecommerce
+    depends_on:
+      - mongo
 
   frontend:
     build: .
@@ -22,3 +25,14 @@ services:
       - VITE_API_URL=http://backend:3000/products
     depends_on:
       - backend
+
+  mongo:
+    image: mongo:latest
+    container_name: rl-ecommerce-mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+
+volumes:
+  mongo-data:
