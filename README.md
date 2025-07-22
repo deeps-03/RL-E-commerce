@@ -1,7 +1,7 @@
 # RL E-commerce Project
 
 ## Overview
-A full-stack e-commerce application using React (Vite + TypeScript), Redux Toolkit, Material UI, Node.js/Express, and MongoDB Atlas.
+A full-stack e-commerce application using React (Vite + TypeScript), Redux Toolkit, Material UI, Node.js/Express, and MongoDB.
 
 ## Features
 - Home, Products, and Cart pages
@@ -9,7 +9,7 @@ A full-stack e-commerce application using React (Vite + TypeScript), Redux Toolk
 - Responsive Material UI design
 - State management with Redux Toolkit
 - Backend API with Node.js/Express
-- MongoDB Atlas for product storage
+- MongoDB for product storage
 
 ## Getting Started with Docker
 
@@ -57,6 +57,32 @@ This method is for developers who want to work on the code and see their changes
 
 **Note on API URL:** The frontend dynamically determines the API URL. When running with Docker Compose, it uses `http://backend:3000/products`. When running manually, it defaults to `http://localhost:5001/products`.
 
+## Database Configuration
+
+This project can be configured to use either a local MongoDB instance running in Docker or a cloud-hosted MongoDB Atlas instance.
+
+### Case 1: Local MongoDB with Docker (Recommended for Development)
+
+The `docker-compose.yml` file is pre-configured to create a local, self-contained development environment. This is the simplest way to get started.
+
+- **How it works:** A `mongo` service is defined in the `docker-compose.yml` file. The `backend` service is configured to connect to it automatically using the hostname `mongo`.
+- **Data Persistence:** Product data is stored in a Docker volume named `mongo-data`, so it persists even after you stop and remove the containers.
+- **Setup:** No extra steps are needed. Just run `docker-compose up`.
+
+### Case 2: Cloud MongoDB with Atlas (For Production or Manual Setup)
+
+If you prefer to use a cloud-hosted database, you can connect the backend to a MongoDB Atlas instance.
+
+1.  **Create a `.env` file** in the `/backend` directory.
+2.  **Add your Atlas URI** to the file. This URI is provided by MongoDB Atlas and contains your credentials and cluster address.
+    ```env
+    # backend/.env
+    MONGODB_URI=your-mongodb-atlas-uri
+    ```
+3.  **Whitelist Your IP Address:** For the backend to connect, you must add your computer's IP address to the IP Access List in your MongoDB Atlas project settings. If you are running the backend inside a Docker container, you may need to whitelist the IP address of your network or `0.0.0.0/0` for testing (be aware of the security implications).
+
+When the `MONGODB_URI` environment variable is present in a `.env` file, the application will prioritize it over the local Docker database connection.
+
 ## Manual Installation (Without Docker)
 
 ### 1. Frontend
@@ -71,10 +97,7 @@ This method is for developers who want to work on the code and see their changes
 3. Open [http://localhost:5173](http://localhost:5173) in your browser.
 
 ### 2. Backend
-1. In the `backend/` folder, create a `.env` file with your MongoDB Atlas URI:
-   ```env
-   MONGODB_URI=your-mongodb-atlas-uri
-   ```
+1. In the `backend/` folder, create a `.env` file with your MongoDB Atlas URI (see "Database Configuration" section above).
 2. Install backend dependencies:
    ```sh
    cd backend
@@ -87,11 +110,15 @@ This method is for developers who want to work on the code and see their changes
 4. The backend runs on [http://localhost:5001](http://localhost:5001)
 
 ### 3. Seed the Database
-1. To add sample products, run:
-   ```sh
-   cd backend
-   node seed.js
-   ```
+To add sample products to either your local or Atlas database, run the seed script from within the `backend` directory:
+```sh
+# If using Docker:
+docker compose exec backend node seed.js
+
+# If running manually:
+cd backend
+node seed.js
+```
 
 ## Project Structure
 - `/src` — React frontend code
@@ -101,4 +128,4 @@ This method is for developers who want to work on the code and see their changes
 ---
 
 ## Credits
-Built with React, Redux Toolkit, Material UI, Node.js/Express, and MongoDB Atlas
+Built with React, Redux Toolkit, Material UI, Node.js/Express, and MongoDB.
