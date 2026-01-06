@@ -128,4 +128,4 @@ node seed.js
 ---
 
 ## Credits
-Built with React, Redux Toolkit, Material UI, Node.js/Express, and MongoDB.
+Built with React, Redux Toolkit, Material UI, Node.js/Express, and MongoDB
